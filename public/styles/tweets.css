@@ -1,0 +1,130 @@
+.tweet {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  background-color: rgb(255, 228, 251);
+  border-color: #000000;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 10px;
+}
+
+.tweet-name {
+  font-size:1.5em;
+  font-weight:600;
+  text-align: left;
+  margin: 10px;
+}
+
+/* username of the tweeter */
+.username {
+  display:flex;
+  font-size:1.1em;
+  font-weight:600;
+  padding: 0px 5px;
+  justify-content: flex-end;
+}
+
+.avatar {
+  height:90px;
+  width:90px;
+  float:left;
+  padding: 5px;
+} 
+
+.userContainer {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* the tweet date */
+.date {
+  margin: 0px;
+}
+
+.likes {
+  font-size: 17px;
+  margin-right: 5px;
+  margin-left: 5px;
+  text-align: right;
+  cursor: pointer;
+}
+
+
+.tweet:hover {
+  box-shadow: 10px 5px 5px skyblue;
+}
+
+.likes:hover{
+  color: aqua;
+}
+
+.flag:hover{
+  color: aqua;
+}
+
+.retweet:hover{
+  color: aqua;
+}
+
+.flag {
+  font-size: 17px;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+
+}
+
+.foot {
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 0.5px;
+}
+
+.retweet {
+  font-size: 17px;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+
+}
+
+/* 3 action symbols */
+.tags {
+  display: flex;
+}
+
+
+.tweetarea {
+  margin: 0px;
+}
+
+.tweet-content {
+  word-wrap: break-word;
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* line under tweets */
+.bottom-line {
+  border-bottom: 4px solid #333333; 
+  margin-left:  10px;
+  margin-right: 10px;
+}
+
+/* username displayed above tweets */
+.tweetusername {
+    font-size:1.5em;
+    font-weight:600;
+    text-align: left;
+    height: 100px;
+}
