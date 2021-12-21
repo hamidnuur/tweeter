@@ -37,8 +37,8 @@ main {
   
 }
 
-/* this is the alert that shows when the client types to long */
-.longErr {
+ /* alert for no text in the tweet */
+ .emptyErr {
   margin-top: 5%;
   display: none;
   border-style: solid;
@@ -50,8 +50,8 @@ main {
   line-height: 80px;
  }
 
- /* this is the alert that shows up when the client didnt type anything */
- .emptyErr {
+/* alert for too many characters */
+.longErr {
   margin-top: 5%;
   display: none;
   border-style: solid;
