@@ -1,50 +1,56 @@
-/*
+ /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const renderTweets = function (tweets) {
-  let $allTweets = $('#all-tweets');
-  $allTweets.empty();
-  
-  for (let tweet of tweets.reverse()) {
-    $allTweets.append(createTweetElement(tweet));
-  }
-}
-
-const createTweetElement = function (tweet) {
-  let $tweet = `
-      <article class="tweet">
-        <div class="user-name">
-          <div class="userContainer">
-            <img class="avatar" src="${tweet.user.avatars}">
-            <p class="tweet-name">${tweet.user.name}</p>
-          </div>
-          <div class="tweetusername">
-            <p class="username">${tweet.user.handle}</p>
-          </div>
-        </div>
-
-        <p class="tweet-content">${escape(tweet.content.text)}</p>
-
-        <hr class="bottom-line">
-
-        <footer class="foot">
-          <p class="date">${timeago.format(tweet.created_at)}</p>
-          <div class="tags">
-            <div class="likes"><i class="fas fa-heart"></i></div>
-            <div class="retweet"><i class="fas fa-retweet"></i></div>
-            <div class="flag"><i class="fas fa-flag"></i></div>
-          </div>
-        </footer>
-      </article><br>`;
-
-  return $tweet;
-}
-
 $(document).ready(function () {
   console.log("onReady")
+
+  const renderTweets = function (tweets) {
+    let $allTweets = $('#all-tweets');
+    $allTweets.empty();
+    
+    for (let tweet of tweets.reverse()) {
+      $allTweets.append(createTweetElement(tweet));
+    }
+  }
+  
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  
+  const createTweetElement = function (tweet) {
+    let $tweet = `
+        <article class="tweet">
+          <div class="user-name">
+            <div class="userContainer">
+              <img class="avatar" src="${tweet.user.avatars}">
+              <p class="tweet-name">${tweet.user.name}</p>
+            </div>
+            <div class="tweetusername">
+              <p class="username">${tweet.user.handle}</p>
+            </div>
+          </div>
+  
+          <p class="tweet-content">${escape(tweet.content.text)}</p>
+  
+          <hr class="bottom-line">
+  
+          <footer class="foot">
+            <p class="date">${timeago.format(tweet.created_at)}</p>
+            <div class="tags">
+              <div class="likes"><i class="fas fa-heart"></i></div>
+              <div class="retweet"><i class="fas fa-retweet"></i></div>
+              <div class="flag"><i class="fas fa-flag"></i></div>
+            </div>
+          </footer>
+        </article><br>`;
+  
+    return $tweet;
+  }
 
   const loadTweets = () => {
     console.log("loadTweets()")
@@ -55,8 +61,6 @@ $(document).ready(function () {
       renderTweets(res);
     });
   };
-
-  loadTweets();
 
   $("#compose").submit(function (event) {
     event.preventDefault();
@@ -88,4 +92,6 @@ $(document).ready(function () {
       }
     });
   });
+
+  loadTweets();
 });

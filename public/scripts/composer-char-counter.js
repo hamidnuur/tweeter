@@ -15,6 +15,7 @@ $(document).ready(function() {
   $( "#compose" ).submit(function( event ) {
     event.preventDefault();
     $(".counter").text(140);
+    $(".counter").css("color","black");
+    document.getElementById("tweet-text").value = "";
   });
 });
-
